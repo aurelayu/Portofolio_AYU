@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aurel Ayu Puspitasari — Portofolio TJKT & Atlet Pencak Silat</title>
+
+  <!-- Google Fonts: Playfair Display (Editorial Headings), Plus Jakarta Sans (UI & Body), JetBrains Mono (Badges) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- External Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="bg-lavender-canvas text-[#261747] font-sans antialiased selection:bg-[#5B3DF5] selection:text-white overflow-x-hidden">
+
+  <!-- Ambient Soft Lilac & Warm Gold Glow Orbs -->
+  <div aria-hidden="true" class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+    <div class="absolute -top-32 -left-24 w-[28rem] h-[28rem] rounded-full bg-[#EDE7FA]/85 blur-3xl"></div>
+    <div class="absolute top-1/3 -right-28 w-[30rem] h-[30rem] rounded-full bg-[#E5DDF5]/75 blur-3xl"></div>
+    <div class="absolute bottom-0 left-1/4 w-[24rem] h-[24rem] rounded-full bg-[#FEF8EB]/80 blur-3xl"></div>
+  </div>
+
+  <!-- =====================================================================
+       1. STICKY TOP NAVBAR (Glassmorphism Soft Lavender)
+  ====================================================================== -->
+  <header class="sticky top-0 z-40 bg-[#F7F5FC]/85 backdrop-blur-xl border-b border-[#E5DDF5]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 sm:h-20">
+        <!-- Brand Name ONLY: AUREL -->
+        <a
+          href="#top"
+          class="font-sans font-extrabold text-xl sm:text-2xl tracking-[0.2em] text-[#261747] hover:text-[#5B3DF5] transition-colors focus:outline-none"
+        >
+          AUREL
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav aria-label="Navigasi Utama" class="hidden md:flex items-center gap-1 lg:gap-2">
+          <a
+            href="#about"
+            data-i18n="nav_about"
+            class="px-3.5 py-2 rounded-xl text-sm font-semibold text-[#5C4E7A] hover:text-[#5B3DF5] hover:bg-[#EDE7FA] transition-colors"
+          >
+            Tentang
+          </a>
+          <a
+            href="#projects"
+            data-i18n="nav_projects"
+            class="px-3.5 py-2 rounded-xl text-sm font-semibold text-[#5C4E7A] hover:text-[#5B3DF5] hover:bg-[#EDE7FA] transition-colors"
+          >
+            Projek
+          </a>
+          <a
+            href="#skills"
+            data-i18n="nav_skills"
+            class="px-3.5 py-2 rounded-xl text-sm font-semibold text-[#5C4E7A] hover:text-[#5B3DF5] hover:bg-[#EDE7FA] transition-colors"
+          >
+            Keahlian
+          </a>
+          <a
+            href="#certificates"
+            data-i18n="nav_certificates"
+            class="px-3.5 py-2 rounded-xl text-sm font-semibold text-[#5C4E7A] hover:text-[#5B3DF5] hover:bg-[#EDE7FA] transition-colors"
+          >
+            Sertifikat
+          </a>
+          <a
+            href="#contact"
+            data-i18n="nav_contact"
+            class="px-3.5 py-2 rounded-xl text-sm font-semibold text-[#5C4E7A] hover:text-[#5B3DF5] hover:bg-[#EDE7FA] transition-colors"
+          >
+            Kontak
+          </a>
+        </nav>
+
+        <!-- Right Controls: Bilingual Switcher Pill (ID | EN) + Mobile Menu Toggle -->
+        <div class="flex items-center gap-2.5">
+          <div
+            role="group"
+            aria-label="Pilih Bahasa"
+            class="inline-flex items-center p-1 rounded-full bg-white border border-[#E5DDF5] shadow-sm"
+          >
+            <button
+              type="button"
+              id="btn-lang-id"
+              onclick="setLanguage('id')"
+              aria-pressed="true"
+              class="px-3.5 py-1 rounded-full text-xs font-bold tracking-wide transition-all bg-[#261747] text-white shadow-sm"
+            >
+              ID
+            </button>
+            <button
+              type="button"
+              id="btn-lang-en"
+              onclick="setLanguage('en')"
+              aria-pressed="false"
+              class="px-3.5 py-1 rounded-full text-xs font-bold tracking-wide transition-all text-[#5C4E7A] hover:text-[#5B3DF5]"
+            >
+              EN
+            </button>
+          </div>
+
+          <!-- Mobile Hamburger Button -->
+          <button
+            type="button"
+            id="mobile-menu-btn"
+            aria-label="Buka Menu"
+            aria-expanded="false"
+            onclick="toggleMobileMenu()"
+            class="md:hidden p-2.5 rounded-xl bg-white border border-[#E5DDF5] text-[#261747] hover:bg-[#EDE7FA] transition-colors"
+          >
+            <svg id="icon-menu-open" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg id="icon-menu-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Collapsible Mobile Navigation Drawer -->
+      <div id="mobile-menu" class="hidden md:hidden pb-4 pt-2 border-t border-[#E5DDF5]">
+        <div class="flex flex-col gap-1">
+          <a href="#about" onclick="closeMobileMenu()" data-i18n="nav_about" class="px-4 py-3 rounded-xl text-sm font-semibold text-[#261747] hover:bg-[#EDE7FA] transition-colors">
+            Tentang
+          </a>
+          <a href="#projects" onclick="closeMobileMenu()" data-i18n="nav_projects" class="px-4 py-3 rounded-xl text-sm font-semibold text-[#261747] hover:bg-[#EDE7FA] transition-colors">
+            Projek
+          </a>
+          <a href="#skills" onclick="closeMobileMenu()" data-i18n="nav_skills" class="px-4 py-3 rounded-xl text-sm font-semibold text-[#261747] hover:bg-[#EDE7FA] transition-colors">
+            Keahlian
+          </a>
+          <a href="#certificates" onclick="closeMobileMenu()" data-i18n="nav_certificates" class="px-4 py-3 rounded-xl text-sm font-semibold text-[#261747] hover:bg-[#EDE7FA] transition-colors">
+            Sertifikat
+          </a>
+          <a href="#contact" onclick="closeMobileMenu()" data-i18n="nav_contact" class="px-4 py-3 rounded-xl text-sm font-semibold text-[#261747] hover:bg-[#EDE7FA] transition-colors">
+            Kontak
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="top" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12 pb-20 space-y-20 sm:space-y-24">
+
+    <!-- =====================================================================
+         2. HERO SECTION (Asymmetric Bento Grid)
+    ====================================================================== -->
+    <section aria-labelledby="hero-heading" class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+
+      <!-- Left Column: Vertical / Arch-Top Framed Profile Photo -->
+      <div class="lg:col-span-5 bg-white border border-[#E5DDF5] rounded-[2rem] p-6 sm:p-8 shadow-bento flex flex-col items-center justify-center relative overflow-hidden">
+        <!-- Decorative Soft Lilac & Gold Glow Shapes -->
+        <div aria-hidden="true" class="absolute -top-14 -left-14 w-44 h-44 rounded-full bg-[#EDE7FA]/90"></div>
+        <div aria-hidden="true" class="absolute -bottom-12 -right-12 w-40 h-40 rounded-full bg-[#FEF8EB]"></div>
+
+        <div class="relative z-10 mt-2">
+          <!-- Offset Soft Lilac & Gold Border Arch Backing -->
+          <div
+            aria-hidden="true"
+            class="absolute inset-0 translate-x-2.5 translate-y-2.5 rounded-t-[8.5rem] rounded-b-[2rem] bg-gradient-to-b from-[#EDE7FA] to-[#FEF8EB] border border-[#F2DDA8]"
+          ></div>
+
+          <!-- Clickable Profile Photo Trigger -->
+          <button
+            type="button"
+            onclick="openLightbox(0)"
+            aria-label="Lihat foto profil Aurel Ayu Puspitasari ukuran penuh"
+            class="group relative block w-56 h-72 sm:w-64 sm:h-80 rounded-t-[8.5rem] rounded-b-[2rem] overflow-hidden border-2 border-[#D4962A]/65 bg-[#EDE7FA] shadow-md focus:outline-none focus:ring-4 focus:ring-[#5B3DF5]/25"
+          >
+            <img
+              src="profil.jpeg"
+              alt="Aurel Ayu Puspitasari"
+              onerror="handleImgError(this, 'profil.jpeg')"
+              class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+            />
+            <!-- Hover Full-Screen Indicator -->
+            <div class="absolute inset-0 bg-[#261747]/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              <span class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white text-[#261747] text-xs font-bold shadow-md">
+                <svg class="w-4 h-4 text-[#5B3DF5]" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 115 11a6 6 0 0112 0zm-6-3v6m-3-3h6" />
+                </svg>
+                <span data-i18n="view_full_photo">Lihat Foto Penuh</span>
+              </span>
+            </div>
+          </button>
+
+          <!-- Floating Top-Right Gold Medal Pill -->
+          <div class="absolute top-5 -right-4 z-20 inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#FEF8EB] border border-[#F2DDA8] shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-[#D4962A]"></span>
+            <span class="font-mono text-[11px] font-bold text-[#9A6914]">SMKN 1 BLITAR</span>
+          </div>
+
+          <!-- Floating Bottom-Left Lilac Pill -->
+          <div class="absolute -bottom-3 -left-3 z-20 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#E5DDF5] shadow-md">
+            <span class="w-2.5 h-2.5 rounded-full bg-[#5B3DF5]"></span>
+            <span data-i18n="hero_floating_role" class="text-xs font-bold text-[#261747]">TJKT & Atlet Silat</span>
+          </div>
+        </div>
+
+        <!-- Explicit Click-to-Enlarge Button -->
+        <button
+          type="button"
+          onclick="openLightbox(0)"
+          class="relative z-10 mt-7 inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#EDE7FA] hover:bg-[#5B3DF5] text-[#261747] hover:text-white border border-[#E5DDF5] text-xs font-bold transition-colors"
+        >
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+          </svg>
+          <span data-i18n="view_full_photo">Lihat Foto Penuh</span>
+        </button>
+      </div>
+
+      <!-- Right Column: Editorial Welcome Bento + Key Bento Metrics -->
+      <div class="lg:col-span-7 flex flex-col gap-6">
+        <div class="flex-1 bg-white border border-[#E5DDF5] rounded-[2rem] p-6 sm:p-9 lg:p-10 shadow-bento flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            <!-- Welcome Greeting Badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#EDE7FA] border border-[#E5DDF5] text-[#5B3DF5] text-xs sm:text-sm font-bold">
+              <span class="w-2 h-2 rounded-full bg-[#5B3DF5]"></span>
+              <span data-i18n="hero_welcome">Selamat Datang di Portofolio Saya</span>
+            </div>
+
+            <!-- Editorial Full Name -->
+            <h1
+              id="hero-heading"
+              class="font-display font-extrabold text-3xl sm:text-4xl lg:text-[2.85rem] text-[#261747] leading-[1.12] tracking-tight"
+            >
+              AUREL AYU PUSPITASARI
+            </h1>
+
+            <!-- Identity Subtitle Pill -->
+            <div class="inline-flex flex-wrap items-center gap-2 px-4 py-2 rounded-2xl bg-[#FEF8EB] border border-[#F2DDA8] text-xs sm:text-sm font-bold text-[#261747]">
+              <svg class="w-4 h-4 text-[#D4962A] shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              <span data-i18n="hero_identity_sub">Pelajar SMKN 1 Blitar (TJKT) • Atlet Pencak Silat</span>
+            </div>
+
+            <!-- Concise Intro Description -->
+            <p data-i18n="hero_subtitle" class="text-sm sm:text-base text-[#5C4E7A] leading-relaxed pt-1">
+              Siswi jurusan Teknik Jaringan Komputer dan Telekomunikasi (TJKT) di SMKN 1 Blitar yang antusias merancang sistem manajemen database dan aplikasi kasir, sekaligus aktif berkompetisi sebagai Atlet Pencak Silat berprestasi dengan disiplin dan sportivitas tinggi.
+            </p>
+          </div>
+
+          <!-- 2 Action Buttons: "Lihat Sertifikat" & "Hubungi Saya" -->
+          <div class="flex flex-wrap items-center gap-3 pt-2">
+            <a
+              href="#certificates"
+              class="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-[#5B3DF5] hover:bg-[#472CD9] text-white text-sm font-bold shadow-bento hover:shadow-bentoHover transition-all duration-300 hover:-translate-y-0.5"
+            >
+              <svg class="w-4 h-4 text-[#F3B94B]" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              <span data-i18n="cta_certificates">Lihat Sertifikat</span>
+            </a>
+
+            <a
+              href="#contact"
+              class="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-[#EDE7FA] hover:bg-[#E5DDF5] border border-[#E5DDF5] text-[#261747] text-sm font-bold transition-all duration-300"
+            >
+              <span data-i18n="cta_contact">Hubungi Saya</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Bottom Bento Highlights Row -->
+        <div class="grid grid-cols-3 gap-4">
+          <div class="bg-white border border-[#E5DDF5] rounded-2xl p-4 shadow-bento text-center">
+            <p class="font-display font-extrabold text-xl sm:text-2xl text-[#5B3DF5]">TJKT</p>
+            <p data-i18n="stat_school" class="text-xs font-semibold text-[#5C4E7A] mt-0.5">SMKN 1 Blitar</p>
+          </div>
+          <div class="bg-white border border-[#E5DDF5] rounded-2xl p-4 shadow-bento text-center">
+            <p class="font-display font-extrabold text-xl sm:text-2xl text-[#261747]">02</p>
+            <p data-i18n="stat_projects" class="text-xs font-semibold text-[#5C4E7A] mt-0.5">Projek Sistem</p>
+          </div>
+          <div class="bg-[#FEF8EB] border border-[#F2DDA8] rounded-2xl p-4 shadow-bento text-center">
+            <p class="font-display font-extrabold text-xl sm:text-2xl text-[#D4962A]">08</p>
+            <p data-i18n="stat_certs" class="text-xs font-semibold text-[#261747] mt-0.5">UTK & 7 Kejuaraan</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         3. ABOUT ME SECTION (Bento Cards)
+    ====================================================================== -->
+    <section id="about" aria-labelledby="about-heading" class="scroll-mt-24 space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+        <div>
+          <span data-i18n="about_kicker" class="font-mono text-xs font-bold uppercase tracking-widest text-[#5B3DF5]">
+            01 // TENTANG SAYA
+          </span>
+          <h2 id="about-heading" data-i18n="about_title" class="font-display font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#261747] mt-1">
+            Tentang Saya
+          </h2>
+        </div>
+        <p data-i18n="about_sub" class="text-xs sm:text-sm font-medium text-[#5C4E7A] max-w-md">
+          Perpaduan ketelitian teknologi jaringan & database dengan disiplin, ketangguhan mental, dan sportivitas tinggi.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+        <!-- Main Narrative Card -->
+        <article class="lg:col-span-7 bg-white border border-[#E5DDF5] rounded-[2rem] p-6 sm:p-8 lg:p-9 shadow-bento flex flex-col justify-between space-y-4">
+          <div class="space-y-4">
+            <span class="inline-block px-3.5 py-1 rounded-full bg-[#EDE7FA] border border-[#E5DDF5] text-[#5B3DF5] text-xs font-bold">
+              Aurel Ayu Puspitasari
+            </span>
+            <h3 data-i18n="about_headline" class="font-display font-bold text-xl sm:text-2xl text-[#261747] leading-snug">
+              Siswi TJKT SMKN 1 Blitar & Atlet Pencak Silat Berprestasi
+            </h3>
+            <p data-i18n="about_p1" class="text-sm sm:text-base text-[#5C4E7A] leading-relaxed">
+              Halo! Saya <strong>Aurel Ayu Puspitasari</strong>, siswi aktif jurusan <strong>Teknik Jaringan Komputer dan Telekomunikasi (TJKT)</strong> di <strong>SMKN 1 Blitar</strong>. Di bidang teknologi, saya mendalami administrasi jaringan komputer, konfigurasi perangkat jaringan, perancangan struktur basis data (database), serta pengembangan aplikasi kasir untuk mendukung pencatatan transaksi secara tertib dan akurat.
+            </p>
+            <p data-i18n="about_p2" class="text-sm sm:text-base text-[#5C4E7A] leading-relaxed">
+              Selain menekuni dunia teknologi, saya aktif sebagai <strong>Atlet Pencak Silat</strong> berprestasi. Pengalaman bertanding di berbagai kejuaraan melatih saya untuk memadukan ketelitian analisis di depan layar komputer dengan disiplin tinggi, ketangguhan mental, fokus, dan sportivitas di arena pertandingan.
+            </p>
+          </div>
+        </article>
+
+        <!-- Summary Bento Card with 4 Highlight Points -->
+        <div class="lg:col-span-5 bg-white border border-[#E5DDF5] rounded-[2rem] p-6 sm:p-8 shadow-bento flex flex-col justify-between space-y-4">
+          <div class="flex items-center justify-between pb-2 border-b border-[#EDE7FA]">
+            <h4 data-i18n="about_summary_title" class="font-display font-bold text-lg sm:text-xl text-[#261747]">
+              Ringkasan Profil
+            </h4>
+            <span class="font-mono text-xs font-bold px-2.5 py-1 rounded-lg bg-[#EDE7FA] text-[#5B3DF5]">04 POIN</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3.5">
+            <!-- Point 1: Pendidikan -->
+            <div class="p-3.5 rounded-2xl bg-[#F7F5FC] border border-[#E5DDF5] flex items-start gap-3.5">
+              <div class="w-10 h-10 rounded-xl bg-[#EDE7FA] text-[#5B3DF5] flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                </svg>
+              </div>
+              <div>
+                <p data-i18n="hl_edu_label" class="text-[11px] font-bold uppercase tracking-wider text-[#5B3DF5]">Pendidikan</p>
+                <p data-i18n="hl_edu_val" class="text-sm font-bold text-[#261747] mt-0.5">SMKN 1 Blitar — TJKT</p>
+              </div>
+            </div>
+
+            <!-- Point 2: Olahraga -->
+            <div class="p-3.5 rounded-2xl bg-[#F7F5FC] border border-[#E5DDF5] flex items-start gap-3.5">
+              <div class="w-10 h-10 rounded-xl bg-[#261747] text-[#F3B94B] flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <div>
+                <p data-i18n="hl_sport_label" class="text-[11px] font-bold uppercase tracking-wider text-[#5B3DF5]">Olahraga</p>
+                <p data-i18n="hl_sport_val" class="text-sm font-bold text-[#261747] mt-0.5">Atlet Pencak Silat</p>
+              </div>
+            </div>
+
+            <!-- Point 3: Lokasi -->
+            <div class="p-3.5 rounded-2xl bg-[#F7F5FC] border border-[#E5DDF5] flex items-start gap-3.5">
+              <div class="w-10 h-10 rounded-xl bg-[#EDE7FA] text-[#5B3DF5] flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <div>
+                <p data-i18n="hl_loc_label" class="text-[11px] font-bold uppercase tracking-wider text-[#5B3DF5]">Lokasi</p>
+                <p data-i18n="hl_loc_val" class="text-sm font-bold text-[#261747] mt-0.5">Blitar, Jawa Timur</p>
+              </div>
+            </div>
+
+            <!-- Point 4: Pencapaian -->
+            <div class="p-3.5 rounded-2xl bg-[#FEF8EB] border border-[#F2DDA8] flex items-start gap-3.5">
+              <div class="w-10 h-10 rounded-xl bg-[#D4962A] text-white flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              </div>
+              <div>
+                <p data-i18n="hl_ach_label" class="text-[11px] font-bold uppercase tracking-wider text-[#9A6914]">Pencapaian</p>
+                <p data-i18n="hl_ach_val" class="text-sm font-bold text-[#261747] mt-0.5">Sertifikasi UTK & 7 Kejuaraan Pencak Silat</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         4. PROJECTS SECTION (2-Column Bento: database.jpeg & kasir.jpeg)
+    ====================================================================== -->
+    <section id="projects" aria-labelledby="projects-heading" class="scroll-mt-24 space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+        <div>
+          <span data-i18n="projects_kicker" class="font-mono text-xs font-bold uppercase tracking-widest text-[#5B3DF5]">
+            02 // PROJEK UNGGULAN
+          </span>
+          <h2 id="projects-heading" data-i18n="projects_title" class="font-display font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#261747] mt-1">
+            Projek & Sistem Digital
+          </h2>
+        </div>
+        <p data-i18n="projects_sub" class="text-xs sm:text-sm font-medium text-[#5C4E7A]">
+          Klik gambar projek untuk melihat tampilan layar penuh.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        <!-- Project Card 1: Sistem & Manajemen Database (database.jpeg) -->
+        <article class="group bg-white border border-[#E5DDF5] rounded-[2rem] overflow-hidden shadow-bento hover:shadow-bentoHover transition-all duration-300 hover:-translate-y-1 flex flex-col">
+          <button
+            type="button"
+            onclick="openLightbox(1)"
+            aria-label="Lihat foto penuh Sistem & Manajemen Database"
+            class="relative w-full aspect-[16/10] bg-[#EDE7FA] overflow-hidden block focus:outline-none"
+          >
+            <img
+              src="database.jpeg"
+              alt="Sistem & Manajemen Database"
+              onerror="handleImgError(this, 'database.jpeg')"
+              class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+            />
+            <!-- Hover Full-Photo Overlay -->
+            <div class="absolute inset-0 bg-[#261747]/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              <span class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white text-[#261747] text-xs font-bold shadow-md">
+                <svg class="w-4 h-4 text-[#5B3DF5]" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 115 11a6 6 0 0112 0zm-6-3v6m-3-3h6" />
+                </svg>
+                <span data-i18n="view_full_photo">Lihat Foto Penuh</span>
+              </span>
+            </div>
+            <!-- Corner Pill -->
+            <span class="absolute top-3 right-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/95 text-[#261747] text-xs font-bold shadow-sm border border-[#E5DDF5]">
+              <svg class="w-3.5 h-3.5 text-[#5B3DF5]" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+              </svg>
+              <span data-i18n="view_full_photo">Lihat Foto Penuh</span>
+            </span>
+          </button>
+
+          <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between space-y-4">
+            <div class="space-y-2.5">
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 rounded-full bg-[#EDE7FA] text-[#5B3DF5] text-xs font-bold">TJKT / Database</span>
+                <span class="px-3 py-1 rounded-full bg-[#F7F5FC] border border-[#E5DDF5] text-[#5C4E7A] text-xs font-semibold">SQL & Relasi Data</span>
+              </div>
+              <h3 data-i18n="proj1_title" class="font-display font-bold text-xl sm:text-2xl text-[#261747]">
+                Sistem & Manajemen Database
+              </h3>
+              <p data-i18n="proj1_desc" class="text-sm text-[#5C4E7A] leading-relaxed">
+                Perancangan struktur tabel basis data relasional, pemodelan relasi antar data, serta pengelolaan query SQL untuk memastikan penyimpanan, pencarian, dan pembaruan informasi berjalan terstruktur dan akurat.
+              </p>
+            </div>
+
+            <div class="pt-3 border-t border-[#EDE7FA] flex items-center justify-between">
+              <span class="font-mono text-xs text-[#5C4E7A]">database.jpeg</span>
+              <button
+                type="button"
+                onclick="openLightbox(1)"
+                class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#5B3DF5] hover:text-[#261747] transition-colors"
+              >
+                <span data-i18n="view_full_photo">Lihat Foto Penuh</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project Card 2: Aplikasi Sistem Kasir (kasir.jpeg) -->
+        <article class="group bg-white border border-[#E5DDF5] rounded-[2rem] overflow-hidden shadow-bento hover:shadow-bentoHover transition-all duration-300 hover:-translate-y-1 flex flex-col">
+          <button
+            type="button"
+            onclick="openLightbox(2)"
+            aria-label="Lihat foto penuh Aplikasi Sistem Kasir"
+            class="relative w-full aspect-[16/10] bg-[#EDE7FA] overflow-hidden block focus:outline-none"
+          >
+            <img
+              src="kasir.jpeg"
+              alt="Aplikasi Sistem Kasir"
+              onerror="handleImgError(this, 'kasir.jpeg')"
+              class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+            />
+            <!-- Hover Full-Photo Overlay -->
+            <div class="absolute inset-0 bg-[#261747]/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              <span class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white text-[#261747] text-xs font-bold shadow-md">
+                <svg class="w-4 h-4 text-[#5B3DF5]" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 115 11a6 6 0 0112 0zm-6-3v6m-3-3h6" />
+                </svg>
+                <span data-i18n="view_full_photo">Lihat Foto Penuh</span>
+              </span>
+            </div>
+            <!-- Corner Pill -->
+            <span class="absolute top-3 right-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/95 text-[#261747] text-xs font-bold shadow-sm border border-[#E5DDF5]">
+              <svg class="w-3.5 h-3.5 text-[#5B3DF5]" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+              </svg>
+              <span data-i18n="view_full_photo">Lihat Foto Penuh</span>
+            </span>
+          </button>
+
+          <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between space-y-4">
+            <div class="space-y-2.5">
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 rounded-full bg-[#FEF8EB] border border-[#F2DDA8] text-[#9A6914] text-xs font-bold">Point of Sale / Aplikasi</span>
+                <span class="px-3 py-1 rounded-full bg-[#F7F5FC] border border-[#E5DDF5] text-[#5C4E7A] text-xs font-semibold">Transaksi & Laporan</span>
+              </div>
+              <h3 data-i18n="proj2_title" class="font-display font-bold text-xl sm:text-2xl text-[#261747]">
+                Aplikasi Sistem Kasir
+              </h3>
+              <p data-i18n="proj2_desc" class="text-sm text-[#5C4E7A] leading-relaxed">
+                Aplikasi Point of Sale (POS) untuk pencatatan transaksi penjualan barang, perhitungan total belanja dan kembalian secara otomatis, serta penyusunan laporan kasir yang rapi dan mudah dipantau.
+              </p>
+            </div>
+
+            <div class="pt-3 border-t border-[#EDE7FA] flex items-center justify-between">
+              <span class="font-mono text-xs text-[#5C4E7A]">kasir.jpeg</span>
+              <button
+                type="button"
+                onclick="openLightbox(2)"
+                class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#5B3DF5] hover:text-[#261747] transition-colors"
+              >
+                <span data-i18n="view_full_photo">Lihat Foto Penuh</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         5. SKILLS SECTION (Clean List Only — No Percentages)
+    ====================================================================== -->
+    <section id="skills" aria-labelledby="skills-heading" class="scroll-mt-24 space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+        <div>
+          <span data-i18n="skills_kicker" class="font-mono text-xs font-bold uppercase tracking-widest text-[#5B3DF5]">
+            03 // KEAHLIAN & KOMPETENSI
+          </span>
+          <h2 id="skills-heading" data-i18n="skills_title" class="font-display font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#261747] mt-1">
+            Keahlian (Skills)
+          </h2>
+        </div>
+        <p data-i18n="skills_sub" class="text-xs sm:text-sm font-medium text-[#5C4E7A]">
+          Sinergi penguasaan teknis TJKT & IT dengan karakter disiplin seorang atlet.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+        <!-- Bento Card 1: Keahlian TJKT & IT (Clean List) -->
+        <div class="bg-white border border-[#E5DDF5] rounded-[2rem] p-6 sm:p-8 shadow-bento space-y-6">
+          <div class="flex items-center gap-3 pb-2 border-b border-[#EDE7FA]">
+            <span class="w-11 h-11 rounded-2xl bg-[#EDE7FA] border border-[#E5DDF5] text-[#5B3DF5] flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+              </svg>
+            </span>
+            <h3 data-i18n="skill_cat_tech" class="font-display font-bold text-lg sm:text-xl text-[#261747]">
+              Keahlian TJKT & IT
+            </h3>
+          </div>
+
+          <ul class="space-y-3">
+            <li class="p-3.5 rounded-2xl bg-[#F7F5FC] border border-[#E5DDF5] flex items-center gap-3">
+              <span class="w-7 h-7 rounded-xl bg-[#EDE7FA] text-[#5B3DF5] flex items-center justify-center shrink-0">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </span>
+              <span data-i18n="skill_tech_1" class="text-xs sm:text-sm font-bold text-[#261747]">
+                Jaringan Komputer & Infrastruktur
+              </span>
+            </li>
+
+            <li class="p-3.5 rounded-2xl bg-[#F7F5FC] border border-[#E5DDF5] flex items-center gap-3">
+              <span class="w-7 h-7 rounded-xl bg-[#EDE7FA] text-[#5B3DF5] flex items-center justify-center shrink-0">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </span>
+              <span data-i18n="skill_tech_2" class="text-xs sm:text-sm font-bold text-[#261747]">
+                Manajemen Database SQL
+              </span>
+            </li>
+
+            <li class="p-3.5 rounded-2xl bg-[#F7F5FC] border border-[#E5DDF5] flex items-center gap-3">
+              <span class="w-7 h-7 rounded-xl bg-[#EDE7FA] text-[#5B3DF5] flex items-center justify-center shrink-0">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </span>
+              <span data-i18n="skill_tech_3" class="text-xs sm:text-sm font-bold text-[#261747]">
+                Administrasi Sistem & Troubleshooting
+              </span>
+            </li>
+
+            <li class="p-3.5 rounded-2xl bg-[#F7F5FC] border border-[#E5DDF5] flex items-center gap-3">
+              <span class="w-7 h-7 rounded-xl bg-[#EDE7FA] text-[#5B3DF5] flex items-center justify-center shrink-0">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </span>
+              <span data-i18n="skill_tech_4" class="text-xs sm:text-sm font-bold text-[#261747]">
+                Pengembangan Aplikasi Kasir
+              </span>
+            </li>
+
+            <li class="p-3.5 rounded-2xl bg-[#F7F5FC] border border-[#E5DDF5] flex items-center gap-3">
+              <span class="w-7 h-7 rounded-xl bg-[#EDE7FA] text-[#5B3DF5] flex items-center justify-center shrink-0">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </span>
+              <span data-i18n="skill_tech_5" class="text-xs sm:text-sm font-bold text-[#261747]">
+                Konfigurasi Perangkat Jaringan
+              </span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Bento Card 2: Keahlian Atlet & Soft Skills (Clean List) -->
+        <div class="bg-white border border-[#E5DDF5] rounded-[2rem] p-6 sm:p-8 shadow-bento space-y-6">
+          <div class="flex items-center gap-3 pb-2 border-b border-[#EDE7FA]">
+            <span class="w-11 h-11 rounded-2xl bg-[#FEF8EB] border border-[#F2DDA8] text-[#D4962A] flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+            </span>
+            <h3 data-i18n="skill_cat_athlete" class="font-display font-bold text-lg sm:text-xl text-[#261747]">
+              Keahlian Atlet & Soft Skills
+            </h3>
+          </div>
+
+          <ul class="space-y-3">
+            <li class="p-3.5 rounded-2xl bg-[#F7F5FC] border border-[#E5DDF5] flex items-center gap-3">
+              <span class="w-7 h-7 rounded-xl bg-[#FEF8EB] border border-[#F2DDA8] text-[#D4962A] flex items-center justify-center shrink-0">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </span>
+              <span data-i18n="skill_ath_1" class="text-xs sm:text-sm font-bold text-[#261747]">
+                Disiplin & Konsistensi Latihan
+              </span>
+            </li>
+
+            <li class="p-3.5 rounded-2xl bg-[#F7F5FC] border border-[#E5DDF5] flex items-center gap-3">
+              <span class="w-7 h-7 rounded-xl bg-[#FEF8EB] border border-[#F2DDA8] text-[#D4962A] flex items-center justify-center shrink-0">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </span>
+              <span data-i18n="skill_ath_2" class="text-xs sm:text-sm font-bold text-[#261747]">
+                Fokus & Ketahanan Mental
+              </span>
+            </li>
+
+            <li class="p-3.5 rounded-2xl bg-[#F7F5FC] border border-[#E5DDF5] flex items-center gap-3">
+              <span class="w-7 h-7 rounded-xl bg-[#FEF8EB] border border-[#F2DDA8] text-[#D4962A] flex items-center justify-center shrink-0">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </span>
+              <span data-i18n="skill_ath_3" class="text-xs sm:text-sm font-bold text-[#261747]">
+                Strategi & Kelincahan Pencak Silat
+              </span>
+            </li>
+
+            <li class="p-3.5 rounded-2xl bg-[#F7F5FC] border border-[#E5DDF5] flex items-center gap-3">
+              <span class="w-7 h-7 rounded-xl bg-[#FEF8EB] border border-[#F2DDA8] text-[#D4962A] flex items-center justify-center shrink-0">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </span>
+              <span data-i18n="skill_ath_4" class="text-xs sm:text-sm font-bold text-[#261747]">
+                Manajemen Waktu Sekolah & Latihan
+              </span>
+            </li>
+
+            <li class="p-3.5 rounded-2xl bg-[#F7F5FC] border border-[#E5DDF5] flex items-center gap-3">
+              <span class="w-7 h-7 rounded-xl bg-[#FEF8EB] border border-[#F2DDA8] text-[#D4962A] flex items-center justify-center shrink-0">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </span>
+              <span data-i18n="skill_ath_5" class="text-xs sm:text-sm font-bold text-[#261747]">
+                Kerja Sama Tim & Kepemimpinan
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         6. CERTIFICATES SECTION (UTK + 7 Pencak Silat Championship Certificates)
+    ====================================================================== -->
+    <section id="certificates" aria-labelledby="certificates-heading" class="scroll-mt-24 space-y-10">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+        <div>
+          <span data-i18n="cert_kicker" class="font-mono text-xs font-bold uppercase tracking-widest text-[#5B3DF5]">
+            04 // SERTIFIKAT & PRESTASI
+          </span>
+          <h2 id="certificates-heading" data-i18n="cert_title" class="font-display font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#261747] mt-1">
+            Sertifikat Kompetensi & Kejuaraan
+          </h2>
+        </div>
+        <p data-i18n="cert_sub" class="text-xs sm:text-sm font-medium text-[#5C4E7A]">
+          Tekan setiap sertifikat untuk membuka tampilan layar penuh.
+        </p>
+      </div>
+
+      <!-- Part A (Featured): Horizontal Bento Card in Deep Violet & Gold for Sertifikat UTK (sertif.jpeg) -->
+      <div class="bg-[#261747] text-white border-2 border-[#D4962A]/60 rounded-[2rem] p-5 sm:p-8 shadow-bento relative overflow-hidden">
+        <!-- Decorative Gold & Violet Radial Glow -->
+        <div aria-hidden="true" class="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-[#5B3DF5]/30 blur-2xl pointer-events-none"></div>
+        <div aria-hidden="true" class="absolute -bottom-20 -left-20 w-56 h-56 rounded-full bg-[#D4962A]/20 blur-2xl pointer-events-none"></div>
+
+        <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+          <!-- Left Image Trigger (sertif.jpeg) -->
+          <div class="lg:col-span-6">
+            <button
+              type="button"
+              onclick="openLightbox(3)"
+              aria-label="Lihat foto penuh Sertifikat UTK (Uji Terampil / Kompetensi)"
+              class="group relative w-full aspect-[16/11] rounded-2xl overflow-hidden bg-[#1B1033] border-2 border-[#F3B94B]/60 block focus:outline-none"
+            >
+              <img
+                src="sertif.jpeg"
+                alt="Sertifikat UTK (Uji Terampil / Kompetensi)"
+                onerror="handleImgError(this, 'sertif.jpeg')"
+                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+              />
+              <div class="absolute inset-0 bg-[#261747]/55 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FEF8EB] text-[#261747] text-xs sm:text-sm font-bold shadow-lg">
+                  <svg class="w-4 h-4 text-[#D4962A]" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 115 11a6 6 0 0112 0zm-6-3v6m-3-3h6" />
+                  </svg>
+                  <span data-i18n="view_full_photo">Lihat Foto Penuh</span>
+                </span>
+              </div>
+            </button>
+          </div>
+
+          <!-- Right Details -->
+          <div class="lg:col-span-6 space-y-4">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FEF8EB] border border-[#F2DDA8] text-[#9A6914] text-xs font-bold">
+              <svg class="w-4 h-4 text-[#D4962A]" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              <span data-i18n="utk_badge">Sertifikasi Unggulan UTK</span>
+            </div>
+
+            <h3 data-i18n="utk_title" class="font-display font-extrabold text-2xl sm:text-3xl text-white">
+              Sertifikat UTK (Uji Terampil / Kompetensi)
+            </h3>
+
+            <p data-i18n="utk_desc" class="text-sm sm:text-base text-[#EDE7FA]/90 leading-relaxed">
+              Sertifikat resmi Uji Terampil / Kompetensi (UTK) sebagai bukti pencapaian standar kecakapan, kedisiplinan, serta evaluasi kompetensi terukur yang berhasil diselesaikan dengan hasil terbaik.
+            </p>
+
+            <div class="pt-1 flex flex-wrap items-center gap-3">
+              <button
+                type="button"
+                onclick="openLightbox(3)"
+                class="inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-[#F3B94B] hover:bg-[#D4962A] text-[#261747] text-xs sm:text-sm font-extrabold shadow-goldGlow transition-colors"
+              >
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 115 11a6 6 0 0112 0zm-6-3v6m-3-3h6" />
+                </svg>
+                <span data-i18n="view_full_photo">Lihat Foto Penuh</span>
+              </button>
+              <span class="font-mono text-xs text-[#EDE7FA]/75">sertif.jpeg</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Part B (Gallery): 7 Pencak Silat Championship Certificates (1.jpeg through 7.jpeg) -->
+      <div class="space-y-5">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div class="flex items-center gap-2.5">
+            <span class="px-3 py-1 rounded-xl bg-[#FEF8EB] border border-[#F2DDA8] text-[#9A6914] font-mono font-bold text-xs">
+              07 MEDALI & SERTIFIKAT
+            </span>
+            <h3 data-i18n="silat_gallery_title" class="font-display font-bold text-xl sm:text-2xl text-[#261747]">
+              Galeri 7 Sertifikat Kejuaraan Pencak Silat
+            </h3>
+          </div>
+          <span data-i18n="silat_gallery_badge" class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#EDE7FA] border border-[#E5DDF5] text-[#5B3DF5] text-xs font-bold">
+            Atlet Pencak Silat
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+          <!-- Certificate 1: 1.jpeg -->
+          <button
+            type="button"
+            onclick="openLightbox(4)"
+            class="group text-left bg-white border border-[#E5DDF5] rounded-2xl overflow-hidden shadow-bento hover:shadow-bentoHover transition-all duration-300 hover:-translate-y-1 focus:outline-none"
+          >
+            <div class="relative aspect-[4/3] bg-[#EDE7FA] overflow-hidden">
+              <img
+                src="1.jpeg"
+                alt="Kejuaraan Pencak Silat #1"
+                onerror="handleImgError(this, '1.jpeg')"
+                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+              />
+              <span class="absolute top-2.5 left-2.5 inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#FEF8EB]/95 border border-[#F2DDA8] text-[#9A6914] font-mono text-[11px] font-bold shadow-sm">
+                <svg class="w-3 h-3 text-[#D4962A]" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                #1
+              </span>
+              <div class="absolute inset-0 bg-[#261747]/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white text-[#261747] text-xs font-bold shadow">
+                  <span data-i18n="view_full_photo">Lihat Foto Penuh</span>
+                </span>
+              </div>
+            </div>
+            <div class="p-4">
+              <p data-i18n="cert_item_1" class="font-display font-bold text-sm text-[#261747] group-hover:text-[#5B3DF5] transition-colors">
+                Kejuaraan Pencak Silat #1
+              </p>
+              <p data-i18n="view_full_photo" class="text-xs text-[#5C4E7A] mt-1">Lihat Foto Penuh</p>
+            </div>
+          </button>
+
+          <!-- Certificate 2: 2.jpeg -->
+          <button
+            type="button"
+            onclick="openLightbox(5)"
+            class="group text-left bg-white border border-[#E5DDF5] rounded-2xl overflow-hidden shadow-bento hover:shadow-bentoHover transition-all duration-300 hover:-translate-y-1 focus:outline-none"
+          >
+            <div class="relative aspect-[4/3] bg-[#EDE7FA] overflow-hidden">
+              <img
+                src="2.jpeg"
+                alt="Kejuaraan Pencak Silat #2"
+                onerror="handleImgError(this, '2.jpeg')"
+                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+              />
+              <span class="absolute top-2.5 left-2.5 inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#FEF8EB]/95 border border-[#F2DDA8] text-[#9A6914] font-mono text-[11px] font-bold shadow-sm">
+                <svg class="w-3 h-3 text-[#D4962A]" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                #2
+              </span>
+              <div class="absolute inset-0 bg-[#261747]/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white text-[#261747] text-xs font-bold shadow">
+                  <span data-i18n="view_full_photo">Lihat Foto Penuh</span>
+                </span>
+              </div>
+            </div>
+            <div class="p-4">
+              <p data-i18n="cert_item_2" class="font-display font-bold text-sm text-[#261747] group-hover:text-[#5B3DF5] transition-colors">
+                Kejuaraan Pencak Silat #2
+              </p>
+              <p data-i18n="view_full_photo" class="text-xs text-[#5C4E7A] mt-1">Lihat Foto Penuh</p>
+            </div>
+          </button>
+
+          <!-- Certificate 3: 3.jpeg -->
+          <button
+            type="button"
+            onclick="openLightbox(6)"
+            class="group text-left bg-white border border-[#E5DDF5] rounded-2xl overflow-hidden shadow-bento hover:shadow-bentoHover transition-all duration-300 hover:-translate-y-1 focus:outline-none"
+          >
+            <div class="relative aspect-[4/3] bg-[#EDE7FA] overflow-hidden">
+              <img
+                src="3.jpeg"
+                alt="Kejuaraan Pencak Silat #3"
+                onerror="handleImgError(this, '3.jpeg')"
+                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+              />
+              <span class="absolute top-2.5 left-2.5 inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#FEF8EB]/95 border border-[#F2DDA8] text-[#9A6914] font-mono text-[11px] font-bold shadow-sm">
+                <svg class="w-3 h-3 text-[#D4962A]" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                #3
+              </span>
+              <div class="absolute inset-0 bg-[#261747]/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white text-[#261747] text-xs font-bold shadow">
+                  <span data-i18n="view_full_photo">Lihat Foto Penuh</span>
+                </span>
+              </div>
+            </div>
+            <div class="p-4">
+              <p data-i18n="cert_item_3" class="font-display font-bold text-sm text-[#261747] group-hover:text-[#5B3DF5] transition-colors">
+                Kejuaraan Pencak Silat #3
+              </p>
+              <p data-i18n="view_full_photo" class="text-xs text-[#5C4E7A] mt-1">Lihat Foto Penuh</p>
+            </div>
+          </button>
+
+          <!-- Certificate 4: 4.jpeg -->
+          <button
+            type="button"
+            onclick="openLightbox(7)"
+            class="group text-left bg-white border border-[#E5DDF5] rounded-2xl overflow-hidden shadow-bento hover:shadow-bentoHover transition-all duration-300 hover:-translate-y-1 focus:outline-none"
+          >
+            <div class="relative aspect-[4/3] bg-[#EDE7FA] overflow-hidden">
+              <img
+                src="4.jpeg"
+                alt="Kejuaraan Pencak Silat #4"
+                onerror="handleImgError(this, '4.jpeg')"
+                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+              />
+              <span class="absolute top-2.5 left-2.5 inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#FEF8EB]/95 border border-[#F2DDA8] text-[#9A6914] font-mono text-[11px] font-bold shadow-sm">
+                <svg class="w-3 h-3 text-[#D4962A]" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                #4
+              </span>
+              <div class="absolute inset-0 bg-[#261747]/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white text-[#261747] text-xs font-bold shadow">
+                  <span data-i18n="view_full_photo">Lihat Foto Penuh</span>
+                </span>
+              </div>
+            </div>
+            <div class="p-4">
+              <p data-i18n="cert_item_4" class="font-display font-bold text-sm text-[#261747] group-hover:text-[#5B3DF5] transition-colors">
+                Kejuaraan Pencak Silat #4
+              </p>
+              <p data-i18n="view_full_photo" class="text-xs text-[#5C4E7A] mt-1">Lihat Foto Penuh</p>
+            </div>
+          </button>
+
+          <!-- Certificate 5: 5.jpeg -->
+          <button
+            type="button"
+            onclick="openLightbox(8)"
+            class="group text-left bg-white border border-[#E5DDF5] rounded-2xl overflow-hidden shadow-bento hover:shadow-bentoHover transition-all duration-300 hover:-translate-y-1 focus:outline-none"
+          >
+            <div class="relative aspect-[4/3] bg-[#EDE7FA] overflow-hidden">
+              <img
+                src="5.jpeg"
+                alt="Kejuaraan Pencak Silat #5"
+                onerror="handleImgError(this, '5.jpeg')"
+                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+              />
+              <span class="absolute top-2.5 left-2.5 inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#FEF8EB]/95 border border-[#F2DDA8] text-[#9A6914] font-mono text-[11px] font-bold shadow-sm">
+                <svg class="w-3 h-3 text-[#D4962A]" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                #5
+              </span>
+              <div class="absolute inset-0 bg-[#261747]/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white text-[#261747] text-xs font-bold shadow">
+                  <span data-i18n="view_full_photo">Lihat Foto Penuh</span>
+                </span>
+              </div>
+            </div>
+            <div class="p-4">
+              <p data-i18n="cert_item_5" class="font-display font-bold text-sm text-[#261747] group-hover:text-[#5B3DF5] transition-colors">
+                Kejuaraan Pencak Silat #5
+              </p>
+              <p data-i18n="view_full_photo" class="text-xs text-[#5C4E7A] mt-1">Lihat Foto Penuh</p>
+            </div>
+          </button>
+
+          <!-- Certificate 6: 6.jpeg -->
+          <button
+            type="button"
+            onclick="openLightbox(9)"
+            class="group text-left bg-white border border-[#E5DDF5] rounded-2xl overflow-hidden shadow-bento hover:shadow-bentoHover transition-all duration-300 hover:-translate-y-1 focus:outline-none"
+          >
+            <div class="relative aspect-[4/3] bg-[#EDE7FA] overflow-hidden">
+              <img
+                src="6.jpeg"
+                alt="Kejuaraan Pencak Silat #6"
+                onerror="handleImgError(this, '6.jpeg')"
+                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+              />
+              <span class="absolute top-2.5 left-2.5 inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#FEF8EB]/95 border border-[#F2DDA8] text-[#9A6914] font-mono text-[11px] font-bold shadow-sm">
+                <svg class="w-3 h-3 text-[#D4962A]" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                #6
+              </span>
+              <div class="absolute inset-0 bg-[#261747]/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white text-[#261747] text-xs font-bold shadow">
+                  <span data-i18n="view_full_photo">Lihat Foto Penuh</span>
+                </span>
+              </div>
+            </div>
+            <div class="p-4">
+              <p data-i18n="cert_item_6" class="font-display font-bold text-sm text-[#261747] group-hover:text-[#5B3DF5] transition-colors">
+                Kejuaraan Pencak Silat #6
+              </p>
+              <p data-i18n="view_full_photo" class="text-xs text-[#5C4E7A] mt-1">Lihat Foto Penuh</p>
+            </div>
+          </button>
+
+          <!-- Certificate 7: 7.jpeg -->
+          <button
+            type="button"
+            onclick="openLightbox(10)"
+            class="group text-left bg-white border border-[#E5DDF5] rounded-2xl overflow-hidden shadow-bento hover:shadow-bentoHover transition-all duration-300 hover:-translate-y-1 focus:outline-none"
+          >
+            <div class="relative aspect-[4/3] bg-[#EDE7FA] overflow-hidden">
+              <img
+                src="7.jpeg"
+                alt="Kejuaraan Pencak Silat #7"
+                onerror="handleImgError(this, '7.jpeg')"
+                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+              />
+              <span class="absolute top-2.5 left-2.5 inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#FEF8EB]/95 border border-[#F2DDA8] text-[#9A6914] font-mono text-[11px] font-bold shadow-sm">
+                <svg class="w-3 h-3 text-[#D4962A]" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                #7
+              </span>
+              <div class="absolute inset-0 bg-[#261747]/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white text-[#261747] text-xs font-bold shadow">
+                  <span data-i18n="view_full_photo">Lihat Foto Penuh</span>
+                </span>
+              </div>
+            </div>
+            <div class="p-4">
+              <p data-i18n="cert_item_7" class="font-display font-bold text-sm text-[#261747] group-hover:text-[#5B3DF5] transition-colors">
+                Kejuaraan Pencak Silat #7
+              </p>
+              <p data-i18n="view_full_photo" class="text-xs text-[#5C4E7A] mt-1">Lihat Foto Penuh</p>
+            </div>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         7. CONTACT SECTION (Editorial Deep Violet & Gold Card)
+    ====================================================================== -->
+    <section id="contact" aria-labelledby="contact-heading" class="scroll-mt-24">
+      <div class="bg-[#261747] text-white border-2 border-[#D4962A]/50 rounded-[2.25rem] p-6 sm:p-10 lg:p-12 shadow-bento relative overflow-hidden space-y-8">
+        <!-- Decorative Deep Violet & Gold Radial Glows -->
+        <div aria-hidden="true" class="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-[#5B3DF5]/35 blur-3xl pointer-events-none"></div>
+        <div aria-hidden="true" class="absolute -bottom-24 -left-24 w-64 h-64 rounded-full bg-[#D4962A]/20 blur-3xl pointer-events-none"></div>
+
+        <!-- Section Header -->
+        <div class="relative z-10 flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-white/10 pb-6">
+          <div>
+            <span data-i18n="contact_kicker" class="font-mono text-xs font-bold uppercase tracking-widest text-[#F3B94B]">
+              05 // KONTAK PRIBADI
+            </span>
+            <h2 id="contact-heading" data-i18n="contact_title" class="font-display font-extrabold text-2xl sm:text-3xl lg:text-4xl text-white mt-1">
+              Mari Terhubung
+            </h2>
+          </div>
+          <p data-i18n="contact_sub" class="text-xs sm:text-sm font-medium text-[#EDE7FA]/85 max-w-md">
+            Silakan hubungi saya secara langsung melalui email pribadi atau kunjungi akun Instagram saya.
+          </p>
+        </div>
+
+        <!-- Two Inner Bento Cards: Email & Instagram -->
+        <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Personal Email Card -->
+          <div class="bg-white/10 backdrop-blur-md border border-[#EDE7FA]/20 rounded-3xl p-6 sm:p-7 flex flex-col justify-between space-y-5">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-2xl bg-[#FEF8EB] border border-[#F2DDA8] text-[#D4962A] flex items-center justify-center shrink-0">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div class="min-w-0 flex-1">
+                <span data-i18n="contact_email_label" class="text-xs font-bold uppercase tracking-wider text-[#F3B94B]">
+                  Email Pribadi
+                </span>
+                <p id="email-address" class="font-sans font-bold text-base sm:text-lg text-white break-all mt-1">
+                  aurelayu2341@gmail.com
+                </p>
+                <p data-i18n="contact_email_hint" class="text-xs text-[#EDE7FA]/80 mt-1">
+                  Salin alamat email dengan sekali klik atau kirim pesan langsung.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-3 pt-1">
+              <a
+                href="mailto:aurelayu2341@gmail.com"
+                class="inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-[#F3B94B] hover:bg-[#D4962A] text-[#261747] text-xs sm:text-sm font-extrabold transition-colors"
+              >
+                <span data-i18n="btn_send_email">Kirim Email</span>
+              </a>
+
+              <button
+                type="button"
+                onclick="copyEmail()"
+                class="inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-white/15 hover:bg-white/25 border border-white/20 text-white text-xs sm:text-sm font-bold transition-colors"
+              >
+                <svg class="w-4 h-4 text-[#F3B94B]" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                </svg>
+                <span data-i18n="btn_copy_email">Salin Email</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Personal Instagram Card -->
+          <div class="bg-white/10 backdrop-blur-md border border-[#EDE7FA]/20 rounded-3xl p-6 sm:p-7 flex flex-col justify-between space-y-5">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-2xl bg-[#EDE7FA] text-[#5B3DF5] flex items-center justify-center shrink-0">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                </svg>
+              </div>
+              <div class="min-w-0 flex-1">
+                <span data-i18n="contact_ig_label" class="text-xs font-bold uppercase tracking-wider text-[#F3B94B]">
+                  Instagram Pribadi
+                </span>
+                <p class="font-sans font-bold text-base sm:text-lg text-white mt-1">
+                  @xzylm_
+                </p>
+                <p data-i18n="contact_ig_hint" class="text-xs text-[#EDE7FA]/80 mt-1">
+                  Ikuti keseharian belajar di TJKT SMKN 1 Blitar dan dokumentasi kejuaraan Pencak Silat.
+                </p>
+              </div>
+            </div>
+
+            <div class="pt-1">
+              <a
+                href="https://www.instagram.com/xzylm_?gwpx=MzIyN25mNGIzZ2R3&utm_source=qr"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-[#5B3DF5] hover:bg-[#472CD9] text-white text-xs sm:text-sm font-bold border border-white/15 transition-colors"
+              >
+                <span data-i18n="btn_visit_ig">Buka Instagram</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M14 3h7v7m0-7L10 14M5 5v14h14" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =====================================================================
+       8. EDITORIAL FOOTER
+  ====================================================================== -->
+  <footer class="border-t border-[#E5DDF5] bg-white/80 backdrop-blur-md">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+      <div class="space-y-1">
+        <p class="font-sans font-extrabold text-base tracking-[0.2em] text-[#261747]">AUREL</p>
+        <p data-i18n="footer_tagline" class="text-xs text-[#5C4E7A]">
+          Aurel Ayu Puspitasari • Pelajar SMKN 1 Blitar (TJKT) & Atlet Pencak Silat
+        </p>
+      </div>
+      <p data-i18n="footer_copy" class="text-xs font-medium text-[#5C4E7A]">
+        © 2026 Aurel Ayu Puspitasari. Hak Cipta Dilindungi.
+      </p>
+    </div>
+  </footer>
+
+  <!-- =====================================================================
+       9. TOAST NOTIFICATION (Non-blocking Copy Feedback)
+  ====================================================================== -->
+  <div
+    id="toast-notification"
+    role="status"
+    aria-live="polite"
+    class="fixed bottom-6 right-6 z-50 pointer-events-none opacity-0 translate-y-3 transition-all duration-300"
+  >
+    <div class="flex items-center gap-2.5 px-4 py-3 rounded-2xl bg-[#261747] text-white text-xs sm:text-sm font-semibold shadow-xl border border-[#F3B94B]/50">
+      <span class="w-2.5 h-2.5 rounded-full bg-[#F3B94B]"></span>
+      <span id="toast-message">Email berhasil disalin!</span>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       10. FULL-SCREEN LIGHTBOX MODAL (Dark Transparent Violet Backdrop)
+  ====================================================================== -->
+  <div
+    id="photo-lightbox"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="lightbox-caption"
+    onclick="handleLightboxBackdropClick(event)"
+    class="fixed inset-0 z-50 hidden bg-[#160D2B]/95 backdrop-blur-md flex flex-col justify-between p-4 sm:p-6 select-none"
+  >
+    <!-- Top Bar: Counter + Title + Close Button -->
+    <div class="flex items-center justify-between gap-4 text-white max-w-6xl w-full mx-auto">
+      <div class="flex items-center gap-3 min-w-0">
+        <span
+          id="lightbox-counter"
+          class="font-mono text-xs font-extrabold px-3 py-1 rounded-full bg-[#F3B94B] text-[#261747] shrink-0"
+        >
+          1 / 11
+        </span>
+        <p id="lightbox-caption" class="font-display font-bold text-sm sm:text-base truncate">
+          Foto Profil — Aurel Ayu Puspitasari
+        </p>
+      </div>
+
+      <button
+        type="button"
+        onclick="closeLightbox()"
+        aria-label="Tutup tampilan foto penuh"
+        class="p-2.5 rounded-full bg-white/10 hover:bg-[#5B3DF5] text-white transition-colors shrink-0 focus:outline-none"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Center Stage: Prev Button + Full-Resolution Image + Next Button -->
+    <div class="relative flex-1 flex items-center justify-center my-2 min-h-0">
+      <!-- Previous Button -->
+      <button
+        type="button"
+        onclick="navigateLightbox(-1)"
+        aria-label="Foto sebelumnya"
+        class="absolute left-1 sm:left-4 z-10 p-3 rounded-full bg-white/15 hover:bg-[#5B3DF5] text-white backdrop-blur-sm transition-colors focus:outline-none"
+      >
+        <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+
+      <!-- Full-Resolution Image Container -->
+      <div id="lightbox-touch-area" class="flex items-center justify-center w-full h-full px-10 sm:px-16">
+        <img
+          id="lightbox-img"
+          src=""
+          alt=""
+          class="lightbox-image rounded-2xl shadow-2xl border border-[#EDE7FA]/20 bg-[#261747]"
+        />
+      </div>
+
+      <!-- Next Button -->
+      <button
+        type="button"
+        onclick="navigateLightbox(1)"
+        aria-label="Foto berikutnya"
+        class="absolute right-1 sm:right-4 z-10 p-3 rounded-full bg-white/15 hover:bg-[#5B3DF5] text-white backdrop-blur-sm transition-colors focus:outline-none"
+      >
+        <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Bottom Filename & Controls Hint -->
+    <div class="text-center text-[#EDE7FA]/75 text-xs">
+      <span id="lightbox-filename" class="font-mono text-[#F3B94B] mr-2">profil.jpeg</span>
+      <span>•</span>
+      <span data-i18n="lightbox_hint" class="ml-2">Gunakan tombol panah / geser layar untuk berpindah foto, ESC untuk menutup</span>
+    </div>
+  </div>
+
+  <!-- External JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
